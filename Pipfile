@@ -1,0 +1,27 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[scripts]
+clean = "find . -type f -name \"*.py[co]\" -delete -or -type d -name \"__pycache__\" -delete"
+make_env = "cp .env.example .env"
+startapp = "./scripts/startapp.sh"
+shell = "./django_rest/manage.py shell"
+dbshell = "./django_rest/manage.py dbshell"
+makemigrations = "./django_rest/manage.py makemigrations"
+migrate = "./django_rest/manage.py migrate"
+db = "docker-compose up -d db"
+
+[dev-packages]
+flake8 = "*"
+yapf = "*"
+
+[packages]
+django = "*"
+djangorestframework = "*"
+django-environ = "*"
+psycopg2 = "*"
+
+[requires]
+python_version = "3.7"
