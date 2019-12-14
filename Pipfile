@@ -11,6 +11,7 @@ shell = "./django_rest/manage.py shell"
 dbshell = "./django_rest/manage.py dbshell"
 makemigrations = "./django_rest/manage.py makemigrations"
 migrate = "./django_rest/manage.py migrate"
+docker-up = "docker-compose up"
 db = "docker-compose up -d db"
 
 [dev-packages]
@@ -18,7 +19,7 @@ flake8 = "*"
 yapf = "*"
 
 [packages]
-django = "*"
+django = ">=2.2.8"
 djangorestframework = "*"
 django-environ = "*"
 psycopg2 = "*"

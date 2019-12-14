@@ -1,3 +1,8 @@
-from django.shortcuts import render
+from django.views.generic.edit import FormView
 
-# Create your views here.
+from .forms import SetUserRoleForm
+
+
+class SetRoleView(FormView):
+    template_name = 'user/set_role_form.html'
+    form_class = SetUserRoleForm
