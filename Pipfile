@@ -6,23 +6,22 @@ verify_ssl = true
 [scripts]
 clean = "find . -type f -name \"*.py[co]\" -delete -or -type d -name \"__pycache__\" -delete"
 make_env = "cp .env.example .env"
-startapp = "./scripts/startapp.sh"
-shell = "./django_rest/manage.py shell"
-dbshell = "./django_rest/manage.py dbshell"
-makemigrations = "./django_rest/manage.py makemigrations"
-migrate = "./django_rest/manage.py migrate"
-docker-up = "docker-compose up"
 db = "docker-compose up -d db"
+manage = "./django_rest/manage.py"
 
 [dev-packages]
 flake8 = "*"
 yapf = "*"
+factory-boy = "*"
+mimesis = "*"
+pdbpp = "*"
 
 [packages]
 django = ">=2.2.8"
 djangorestframework = "*"
 django-environ = "*"
 psycopg2 = "*"
+django-cors-headers = "*"
 
 [requires]
 python_version = "3.7"

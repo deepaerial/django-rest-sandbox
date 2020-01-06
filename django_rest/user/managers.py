@@ -5,12 +5,12 @@ from django.utils.translation import ugettext_lazy as _
 class UserManager(BaseUserManager):
     def create_user(
         self,
-        username,
-        password,
-        email=None,
-        is_active=True,
-        is_staff=False,
-        is_admin=False,
+        username: str,
+        password: str,
+        email: str = None,
+        active: bool = True,
+        staff: bool = False,
+        admin: bool = False,
         auto_save=True,
     ):
         if not username:
@@ -21,9 +21,9 @@ class UserManager(BaseUserManager):
         user.set_password(password)
         if email:
             user.email = self.normalize_email(email)
-        user.active = is_active
-        user.staff = is_staff
-        user.admin = is_admin
+        user.active = active
+        user.staff = staff
+        user.admin = admin
         user.save(using=self._db)
         return user
 
@@ -32,7 +32,7 @@ class UserManager(BaseUserManager):
             username=username,
             password=password,
             email=email,
-            is_staff=True,
+            staff=True,
             auto_save=auto_save,
         )
         return user
@@ -42,8 +42,8 @@ class UserManager(BaseUserManager):
             username=username,
             password=password,
             email=email,
-            is_staff=True,
-            is_admin=True,
+            staff=True,
+            admin=True,
             auto_save=auto_save,
         )
         return user

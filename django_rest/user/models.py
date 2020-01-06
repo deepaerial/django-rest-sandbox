@@ -42,16 +42,3 @@ class BaseUser(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         return self.username
-
-
-class UserRole(models.Model):
-    name = models.CharField(max_length=255, unique=True)
-
-
-class SystemUser(BaseUser):
-    role = models.ForeignKey(
-        UserRole,
-        on_delete=models.PROTECT,
-        related_name='users',
-        related_query_name='user',
-    )
